@@ -1,0 +1,71 @@
+.koii{	margin:0px;
+		padding:10px;
+		background-color:#333333;
+		font: 5em 'Britannic Bold';
+		color:#33FF33;
+		text-align: center}
+.whitetext{color:#FFFFFF;
+		text-decoration:none;}
+.bluetext{color:#009999;}
+.greytext{color:#333333;}
+.blacktext{color:#000000;}
+#left_column{
+		margin:0px;
+		padding-left:30px;
+		padding-right:30px;
+		padding-top:10px;
+		padding-bottom:10px;
+		width:15%;
+		float:left;
+		color:#333333;
+		background-color:#009999;}
+#center_column{
+		float:right;
+		margin:5px;
+		padding:10px;
+		width:79%;
+		}
+p
+{
+color: #33FF33;
+font-family:"arial";
+}
+.signin
+{
+color:#3399FF ;
+font-family:"arial";
+}				
+#Sign-In{
+margin-top:150px;
+margin-bottom:150px;
+margin-right:auto;
+margin-left:auto;
+border:3px solid #999999;
+padding:9px 35px;
+background:#333333;
+width:400px;
+border-radius:20px;
+box-shadow: 7px 7px 6px;
+}
+#button{
+border-radius:10px;
+width:100px;
+height:40px;
+background:#009900;
+font-weight:bold;
+font-size:20px;
+}
+
+.opacity
+{
+opacity:0.4;
+filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+body{ 
+	background-image: url("background.png");  
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center top;
+    background-attachment: fixed;
+
+}
