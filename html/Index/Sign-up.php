@@ -39,7 +39,7 @@ if ($_POST['Submited']==1){
 		if(!$db){
 			exit("Error in database connection:" .mysqli_error());
 			}
-		$encrypted_password = md5($_POST[password]);	
+		$encrypted_password = md5($_POST['password1']);	
 		$sql="INSERT INTO `User`(`NameFirst`, `NameLast`, `Password`, `Type`, `Email`,`ManagerID`) VALUES ('$firstname','$lastname','$encrypted_password','general','$_POST[email]',0)";
 		$result = mysqli_query($db,$sql);
 		
@@ -220,7 +220,6 @@ $(function(){
   });
   
   $('#email').on('blur', function(){
-    // email regex source http://stackoverflow.com/a/17968929/477958
     var emailval = $(this).val();
     
     var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);

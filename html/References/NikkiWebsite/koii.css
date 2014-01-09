@@ -1,0 +1,26 @@
+.koii{	margin:0px;
+		padding:20px;
+		background-color:#33FF33;
+		font: 5em 'Britannic Bold';
+		color:#333333;}
+.whitetext{color:#FFFFFF;
+		text-decoration:none;}
+.bluetext{color:#009999;}
+.greytext{color:#333333;}
+.blacktext{color:#000000;}
+body{background-color:#333333;}
+#left_column{
+		margin:0px;
+		padding-left:30px;
+		padding-right:30px;
+		padding-top:10px;
+		padding-bottom:10px;
+		width:15%;
+		float:left;
+		color:#333333;
+		background-color:#009999;}
+#center_column{
+		float:right;
+		margin:5px;
+		padding:10px;
+		width:79%;}

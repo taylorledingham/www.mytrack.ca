@@ -42,7 +42,7 @@
     <div id="content">
       <h1>Contact Us</h1>
       
-      <form id="registerform" method="post" action="#">
+      <form id="contactform" method="post" action="#">
         
         
         <div class="formrow">
@@ -62,38 +62,44 @@
     </div><!-- @end #content -->
   </div><!-- @end #w -->
 <script type="text/javascript">
-$(function(){  
-  $('#username').on('blur', function(){
-    var currval = $(this).val();
+$(function(){   
+$("#contactform").submit(function(e){
+ 	var emailval =  document.getElementById("email").value;
+ 	var commentval = document.getElementById("comment").value;
+ 	var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
+    if(!pattern.test(emailval)|| emailval.length < 1) {
+    	//alert("Please enter a valid Email");
+    	//document.getElementById("errEmail").next('.errmsg').slideDown();
+    	//alert("here");
+    	e.preventDefault();
+    }
+    else if(commentval.length < 6)
+    {
+	    e.preventDefault();
+    }
+    else
+    {
+	    alert("Thank You");
+    } 	
+  });
+  
+    $('#comment').on('blur', function(){
+    var comment = $(this).val();
     
-    if(currval.length < 6) {
+    if(comment.length < 6) {
       $(this).next('.errmsg').slideDown();
     } else {
-      // the username is 6 or more characters and we hide the error
       $(this).next('.errmsg').slideUp();
     }
   });
   
   $('#email').on('blur', function(){
-    // email regex source http://stackoverflow.com/a/17968929/477958
-    var mailval = $(this).val();
+    var emailval = $(this).val();
     
     var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
-    if(!pattern.test(mailval)) {
+    if(!pattern.test(emailval)|| emailval.length < 1) {
       $(this).next('.errmsg').slideDown();
     } else {
-      $(this).next('.errmsg').slideUp();
-    }
-  });
-  
-  $('#password2').on('blur', function(){
-    var pwone = $('#password1').val();
-    var pwtwo = $(this).val();
-    
-    if(pwtwo.length < 1 || pwone != pwtwo) {
-      $(this).next('.errmsg').slideDown();
-    } else if(pwone == pwtwo) {
-      // both passwords match and we hide the error
       $(this).next('.errmsg').slideUp();
     }
   });

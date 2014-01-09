@@ -3,6 +3,8 @@
 if ($_POST['submited']==1){
   $u=trim($_POST["email"]);
   $p=trim($_POST["password1"]);
+  //echo($u);
+  //echo($p);
   if(strlen($u)>0 && strlen($p)>0){
     $db = mysqli_connect("localhost", "root", "imagroup123","mytrack");
     if(!$db){
@@ -10,47 +12,55 @@ if ($_POST['submited']==1){
     }
     else{
     
-    $encrypted_password = md5($p);
-    
-    $q = "SELECT `ManagerID`, `NameFirst` FROM `User` WHERE `Email`='$u' AND `Password`='$encrypted_password'";
-	$q2 = "SELECT `ManagerID`, `NameFirst` FROM `Manager` WHERE `Email`='$u' AND `Password`='$encrypted_password'";
-	$result = mysqli_query($db,$q);
-	$result2 = mysqli_query($db,$q2);
-	
-	if(mysqli_num_rows($result)>0)
-	{
-		session_start();
-	
-		$_SESSION["logged_in"]=1;
-		$row=mysqli_fetch_assoc($result);
-	
-		$_SESSION["user_id"]=$row["UserId"];
-		$_SESSION["first_name"]=$row["NameFirst"];
-		$_SESSION["manager_id"]=$row["ManagerID"];
-		$_SESSION["type"]=$row["Type"];
-	
-		header("Location: http://www.mytrack.ca/Home.php");
-		exit();
-	}
-	else if(mysqli_num_rows($result2)>0)
-	{
-		session_start();
-	
-		$_SESSION["logged_in"]=1;
-		$row=mysqli_fetch_assoc($result2);
-	
-		$_SESSION["user_id"]=$row["ManagerId"];
-		$_SESSION["first_name"]=$row["NameFirst"];
-		$_SESSION["manager_id"]=$row["ManagerID"];
-		$_SESSION["type"]=$row["Type"];
-	
-		header("Location: http://www.mytrack.ca/Home.php");
-		exit();
-	}
-	else 
-	{
-		$error_message="Error with email or password";
-	}
+	    $encrypted_password = md5($p);
+	    
+	    $q = "SELECT `UserID`, `NameFirst`, `ManagerLink`,`ManagerID`, `Type` FROM `User` WHERE `Email`='$u' AND `Password`='$encrypted_password'";
+		//$q2 = "SELECT `ManagerID`, `NameFirst`, `Type` FROM `Manager` WHERE `Email`='$u' AND `Password`='$encrypted_password'";
+		$result = mysqli_query($db,$q);
+		//$result2 = mysqli_query($db,$q2);
+		
+		if(mysqli_num_rows($result)>0)
+		{
+			session_start();
+		
+			$_SESSION["logged_in"]=1;
+			$row=mysqli_fetch_assoc($result);
+		
+			$_SESSION["user_id"]=$row["UserID"];
+			$_SESSION["first_name"]=$row["NameFirst"];
+			$_SESSION["manager_id"]=$row["ManagerLink"];
+			$_SESSION["type"]=$row["Type"];
+			if($row["ManagerID"]!=0)
+			{
+				$_SESSION["HeadManager"]="True";
+			}
+			else
+			{
+				$_SESSION["HeadManager"]="False";
+			}
+		
+			header("Location: http://www.mytrack.ca/Home.php");
+			exit();
+		}
+		/*else if(mysqli_num_rows($result2)>0)
+		{
+			session_start();
+		
+			$_SESSION["logged_in"]=1;
+			$row=mysqli_fetch_assoc($result2);
+		
+			$_SESSION["user_id"]=$row["ManagerID"];
+			$_SESSION["first_name"]=$row["NameFirst"];
+			$_SESSION["manager_id"]=$row["ManagerID"];
+			$_SESSION["type"]=$row["Type"];
+		
+			header("Location: http://www.mytrack.ca/Home.php");
+			exit();
+		}*/
+		else 
+		{
+			$error_message="Error with email or password";
+		}
     }
   }
   else {

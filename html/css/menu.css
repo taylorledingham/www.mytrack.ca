@@ -1,3 +1,19 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, u, i, center, dl, dt, dd, ol, ul, fieldset, label, legend, table, caption, tbody, tfoot, thead, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* Top Menu */
 .demo_container { 
 	width:980px; 
@@ -86,4 +102,59 @@ body
 #content-wrap {
     float: right;
     width: 70%;
-}   
+}
+
+/*select */
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+   
+.styled-select {
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url(../pictures/down_arrow_select.jpg) no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }   
+   
+/* Button */
+ .button-add,
+        .button-delete,
+        .button-edit {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-add {
+            background: rgb(28, 184, 65); /* this is a green */
+            font-size: 100%
+        }
+
+        .button-delete {
+            background: rgb(202, 60, 60); /* this is a maroon */
+            font-size: 80%
+        }
+
+        .button-edit {
+            background: rgb(223,117, 20); /* this is a light blue */
+            font-size: 80%
+        }
+form {
+    display: inline;
+}
+#noNewLine {
+	display: inline;
+	font-family:arial;
+	color:red;
+	font-size:20px;
+}
+

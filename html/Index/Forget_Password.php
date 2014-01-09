@@ -37,7 +37,41 @@
 		</div>
 	</div>
 </div>
+<div id="w">
+    <div id="content">
+      <h1>Please Enter Email Used to Sign-Up</h1>
+      
+      <form id="PasswordResetform" method="post" action="#">
+        
+        
+        <div class="formrow">
+          <label for="username">Email Address</label>
+          <input data-progression="" type="email" name="email" id="email" class="basetxt">
+          <p class="errmsg">Please Enter a Valid Email</p>
+        </div>
+                
+        <input type="submit" id="submitformbtn" class="submitbtn" value="Submit">
+      </form>
+    </div><!-- @end #content -->
+  </div><!-- @end #w -->
+<script type="text/javascript">
+$(function(){   
+$("#PasswordResetform").submit(function(e){
+ 	var emailval =  document.getElementById("email").value;
+ 	var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
+    if(!pattern.test(emailval)|| emailval.length < 1) {
+    	//alert("Please enter a valid Email");
+    	//document.getElementById("errEmail").next('.errmsg').slideDown();
+    	//alert("here");
+    	e.preventDefault();
+    }else
+    {
+	    alert("A Password Reset Will Be Sent Shortly");
+    } 	
+  });
 
+});
+</script>
 
 </body>
 </html>
